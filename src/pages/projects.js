@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Layout from "../components/Layout";
 import { motion } from "framer-motion";
+import Image from 'next/image';
 
 const projects = [
   {
@@ -64,7 +65,7 @@ export default function Projects() {
               transition={{ duration: 0.5, delay: index * 0.2 }}
               viewport={{ once: true }}
             >
-              <img src={project.image} alt={project.title} className="w-full h-56 object-cover rounded-t-xl" />
+              <Image src={project.image} alt={project.title} className="w-full h-56 object-cover rounded-t-xl" />
               <div className="p-6 flex flex-col justify-between flex-grow">
                 <div>
                   <h3 className="text-2xl font-semibold text-primary">{project.title}</h3>

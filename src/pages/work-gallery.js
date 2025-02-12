@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Layout from "../components/Layout";
+import Image from 'next/image';
 
 const projects = [
   {
@@ -50,7 +51,7 @@ export default function WorkGallery() {
         <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
           {projects.map((project, index) => (
             <div key={index} className="bg-background rounded-xl shadow-lg overflow-hidden">
-              <img src={project.image} alt={project.title} className="w-full h-64 object-cover hover:scale-105 transition duration-300" />
+              <Image src={project.image} alt={project.title} className="w-full h-64 object-cover hover:scale-105 transition duration-300" />
               <div className="p-4 text-center">
                 <h3 className="text-xl font-semibold text-primary">{project.title}</h3>
               </div>
