@@ -5,27 +5,28 @@ import Image from 'next/image';
 const projects = [
   {
     title: "132kV High Voltage Substation Installation",
-    image: "https://www.swastish.com/image/home/elecrtrical%20substation%20installation.jpg",
+    image: "/images/elecrtrical-substation-installation.jpg",
   },
   {
     title: "HT & LT Power Line Installation",
-    image: "https://5.imimg.com/data5/SELLER/Default/2024/6/425910570/WG/ZB/TR/59716039/ht-lt-transmission-lines-installation-services.jpg",
+    image: "/images/ht-lt-transmission-lines-installation-services.jpg",
   },
   {
     title: "Electrical Pole & Transformer DP Installation",
-    image: "https://5.imimg.com/data5/SELLER/Default/2023/10/354715302/VD/MR/LA/87558959/double-pole-transformer-structure.jpg",
+    image: "/images/double-pole-transformer-structure.jpg",
+  
   },
   {
     title: "Urban & Rural Electrification",
-    image: "https://img.freepik.com/premium-photo/asian-electricians-are-climbing-electric-poles-install-repair-power-lines_416458-552.jpg",
+    image: "/images/electricians-are-climbing-electric-poles-install-repair.jpg",
   },
   {
     title: "Street Light & Smart Urban Electrification",
-    image: "https://www.wiprolighting.com/media/images/blogpost/image/good-led-street-lighting-fixture-1630315156.jpg",
+    image: "/images/street-lighting.jpg",
   },
   {
     title: "Solar Power System Installation",
-    image: "https://2.wlimg.com/product_images/bc-full/2024/3/10618012/solar-power-plant-installation-1709533865-6475809.jpeg",
+    image: "/images/solar-power-plant-installation.jpeg",
   },
 ];
 
@@ -51,7 +52,13 @@ export default function WorkGallery() {
         <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
           {projects.map((project, index) => (
             <div key={index} className="bg-background rounded-xl shadow-lg overflow-hidden">
-              <Image src={project.image} alt={project.title} className="w-full h-64 object-cover hover:scale-105 transition duration-300" />
+              <Image 
+              src={project.image} 
+              alt={project.title} 
+              
+              width={600}  // ✅ Image Width Set
+              height={400} // ✅ Image Height Set 
+              className="w-full h-64 object-cover hover:scale-105 transition duration-300" />
               <div className="p-4 text-center">
                 <h3 className="text-xl font-semibold text-primary">{project.title}</h3>
               </div>
