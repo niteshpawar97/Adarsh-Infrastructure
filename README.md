@@ -108,12 +108,6 @@ public/
 - **Components:** `.card`, `.btn-primary`, `.btn-outline`, `.glass`, `.text-gold`
 - **Animations:** fadeIn, fadeUp, float, glow, pulse-slow
 
-## Contact
-
-- **Phone:** +91 88897 41005
-- **Email:** info@adarshinfra.com
-- **Address:** Gram Panchayat Rd, Chandangaon, Chhindwara, MP 480001
-
 ---
 
 **Designed & Developed by [Niket Group](https://niketgroup.in)** | Powered by NiketGroup.in Hosting
