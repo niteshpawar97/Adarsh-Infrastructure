@@ -1,39 +1,58 @@
 import { motion } from "framer-motion";
-import { CheckCircleIcon } from "@heroicons/react/24/solid";
+import { FaShieldAlt, FaBolt, FaSolarPanel, FaCogs, FaClock, FaAward, FaMapMarkedAlt, FaHandshake, FaTools } from "react-icons/fa";
 
 const features = [
-  "A-Class Government-Registered Electrical Contractor (MP Govt.)",
-  "Expert in HT & LT Power Distribution & Transformer Installations",
-  "Installation of Electrical Poles & Transmission Lines in Urban & Rural Areas",
-  "Dedicated Electrification Services for Villages & Remote Areas",
-  "All Types of DP Installation with Transformer (25kV, 50kV, 75kV, 100kV+)",
-  "Smart Street Lighting & Urban Electrification Solutions",
-  "Energy-Efficient Solar Power & Backup Solutions for Industries & Homes",
-  "Strict Compliance with Government Safety & Quality Regulations",
-  "Timely Execution of Government & Private Electrical Contracts",
-  // "24/7 Maintenance & Reliable Customer Support for Electrical Infrastructure",
+  { icon: <FaShieldAlt />, title: "A-Class Registered", desc: "Government Registered Electrical Contractor under MP Govt." },
+  { icon: <FaBolt />, title: "HT & LT Expert", desc: "Specialized in High-Tension & Low-Tension power distribution." },
+  { icon: <FaMapMarkedAlt />, title: "Rural & Urban", desc: "Electrification services for villages, cities & industrial zones." },
+  { icon: <FaCogs />, title: "DP & Transformer", desc: "All types of DP installation with Transformer (25kV to 100kV+)." },
+  { icon: <FaSolarPanel />, title: "Solar Power", desc: "Energy-efficient solar solutions for industries & homes." },
+  { icon: <FaClock />, title: "Timely Execution", desc: "On-time project delivery for government & private contracts." },
+  { icon: <FaAward />, title: "Quality Assured", desc: "Strict compliance with safety & quality regulations." },
+  { icon: <FaHandshake />, title: "Trusted Partner", desc: "15+ years of trusted electrical infrastructure services." },
+  { icon: <FaTools />, title: "Complete Solutions", desc: "From street lighting to smart automation systems." },
 ];
-
 
 const WhyChooseUs = () => {
   return (
-    <section className="bg-background text-gray-900 py-12 px-6">
-      <h3 className="text-4xl font-bold text-primary text-center">Why Choose Adarsh Infrastructure?</h3>
-      
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-8 max-w-6xl mx-auto">
-        {features.map((feature, index) => (
-          <motion.div
-            key={index}
-            className="flex items-center space-x-4 bg-secondary p-5 rounded-lg shadow-md border-l-4 border-primary transition-transform transform hover:scale-105 hover:shadow-xl duration-300"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: index * 0.2 }}
-          >
-            <CheckCircleIcon className="h-8 w-8 text-green-500" />
-            <span className="text-lg text-foreground font-semibold">{feature}</span>
-          </motion.div>
-        ))}
+    <section className="py-14 sm:py-16 lg:py-20 bg-section-gradient">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="text-center mb-10 sm:mb-14"
+        >
+          <h2 className="section-heading">
+            Why Choose <span className="text-gold">Adarsh Infrastructure?</span>
+          </h2>
+          <div className="section-divider" />
+          <p className="section-subheading">
+            With 15+ years of expertise, we deliver world-class electrical infrastructure across Madhya Pradesh.
+          </p>
+        </motion.div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 lg:gap-5">
+          {features.map((feature, index) => (
+            <motion.div
+              key={index}
+              className="card flex items-start gap-3 sm:gap-4 group"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: Math.min(index * 0.05, 0.4) }}
+            >
+              <div className="w-10 h-10 sm:w-12 sm:h-12 bg-primary/10 rounded-lg sm:rounded-xl flex items-center justify-center text-primary text-lg sm:text-xl flex-shrink-0 group-hover:bg-primary group-hover:text-gray-900 transition-all duration-300">
+                {feature.icon}
+              </div>
+              <div className="min-w-0">
+                <h4 className="text-white font-bold text-base sm:text-lg mb-0.5 sm:mb-1">{feature.title}</h4>
+                <p className="text-gray-400 text-xs sm:text-sm leading-relaxed">{feature.desc}</p>
+              </div>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </section>
   );

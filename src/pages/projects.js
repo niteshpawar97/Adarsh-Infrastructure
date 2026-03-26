@@ -2,106 +2,89 @@ import Head from "next/head";
 import Layout from "../components/Layout";
 import { motion } from "framer-motion";
 import Image from "next/image";
-
-const projects = [
-  {
-    title: "132kV High Voltage Substation Installation",
-    description:
-      "Successfully installed and commissioned 132kV substations for industrial and commercial power supply across multiple locations.",
-    image: "/images/elecrtrical-substation-installation.jpg",
-  },
-  {
-    title: "HT & LT Power Line Installation",
-    description:
-      "Expert installation of High-Tension (HT) and Low-Tension (LT) power distribution lines with government approvals for rural and urban areas.",
-    image: "/images/ht-lt-transmission-lines-installation-services.jpg",
-  },
-  {
-    title: "Electrical Pole & Transformer DP Installation",
-    description:
-      "Installation of electrical poles, distribution panels (DP), and transformers (25kV, 50kV, 75kV, 100kV) for efficient power distribution.",
-    image: "/images/double-pole-transformer-structure.jpg",
-  },
-  {
-    title: "Urban & Rural Electrification",
-    description:
-      "Complete electrification projects in both urban and rural areas, including government and private sector contracts.",
-    image:
-      "/images/electricians-are-climbing-electric-poles-install-repair.jpg",
-  },
-  {
-    title: "Street Light & Smart Urban Electrification",
-    description:
-      "Installation of smart street lighting, automation, and IoT-based electrical systems for cities, highways, and industrial areas.",
-    image: "/images/street-lighting.jpg",
-  },
-  {
-    title: "Solar Power System Installation",
-    description:
-      "End-to-end solar power solutions, including government-approved rooftop, ground-mounted solar setups, and hybrid energy systems.",
-    image: "/images/solar-power-plant-installation.jpeg",
-  },
-];
+import Link from "next/link";
+import projects from "../data/projects";
 
 export default function Projects() {
   return (
     <Layout>
       <Head>
-        <title>Projects - Adarsh Infrastructure</title>
-        <meta
-          name="description"
-          content="Explore Adarsh Infrastructure's completed electrical projects, including HT & LT power distribution, solar energy, and automation solutions."
-        />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Projects - Adarsh Infrastructure | Completed Electrical Projects</title>
+        <meta name="description" content="Explore Adarsh Infrastructure's 500+ completed electrical projects including HT & LT power distribution, solar energy, and automation solutions." />
+        <meta property="og:title" content="Projects - Adarsh Infrastructure" />
+        <meta property="og:type" content="website" />
       </Head>
 
-      <main className="py-20 px-8 text-center bg-gradient-to-b from-background to-secondary text-white max-w-7xl mx-auto rounded-2xl shadow-xl">
-        {/* Page Heading */}
-        <h2 className="text-5xl font-extrabold text-primary mb-6">
-          Our Electrical Projects
-        </h2>
-        <div className="w-24 h-1 bg-primary mx-auto rounded-full mb-6"></div>
-        <p className="text-lg text-gray-300 max-w-3xl mx-auto leading-relaxed">
-          Explore our successfully completed electrical projects, including
-          **substation installations, solar power setups, and industrial power
-          distribution systems.**
-        </p>
-
-        {/* Projects Grid */}
-        <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project, index) => (
-            <motion.div
-              key={index}
-              className="bg-gray-800 rounded-xl shadow-lg overflow-hidden flex flex-col justify-between h-full transform hover:scale-105 transition duration-300"
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.2 }}
-              viewport={{ once: true }}
-            >
-              <div className="relative w-full">
-                <Image
-                  src={project.image}
-                  alt={project.title}
-                  width={600} // ✅ Image Width Set
-                  height={400} // ✅ Image Height Set
-                  className="rounded-t-xl"
-                />
-              </div>
-              <div className="p-6 flex flex-col justify-between flex-grow">
-                <div>
-                  <h3 className="text-2xl font-semibold text-primary">
-                    {project.title}
-                  </h3>
-                  <p className="text-gray-300 mt-2">{project.description}</p>
-                </div>
-                <button className="mt-4 px-6 py-2 bg-primary text-gray-900 font-semibold rounded-lg shadow-md transition-transform transform hover:scale-105">
-                  View Details
-                </button>
-              </div>
-            </motion.div>
-          ))}
+      {/* Hero */}
+      <section className="py-16 sm:py-20 md:py-24 bg-section-gradient text-center">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6">
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mb-4">
+              Our <span className="text-gold">Projects</span>
+            </h1>
+            <div className="section-divider" />
+            <p className="text-gray-400 text-base sm:text-lg max-w-2xl mx-auto">
+              500+ successfully completed electrical infrastructure projects across Madhya Pradesh.
+            </p>
+          </motion.div>
         </div>
-      </main>
+      </section>
+
+      {/* Projects Grid */}
+      <section className="py-14 sm:py-16 lg:py-20 bg-background">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 lg:gap-6">
+            {projects.map((project, index) => (
+              <motion.div
+                key={index}
+                className="group rounded-2xl overflow-hidden bg-card-gradient border border-card-border hover:border-primary/30 transition-all duration-300 hover:shadow-gold"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, delay: index * 0.08 }}
+                viewport={{ once: true }}
+              >
+                {/* Image */}
+                <div className="relative h-44 sm:h-48 lg:h-56 overflow-hidden">
+                  <Image
+                    src={project.image}
+                    alt={project.title}
+                    width={600}
+                    height={400}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    loading={index < 3 ? "eager" : "lazy"}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent" />
+                  <div className="absolute bottom-3 sm:bottom-4 left-3 sm:left-4 right-3 sm:right-4">
+                    <h3 className="text-base sm:text-lg font-bold text-white drop-shadow-lg break-words">{project.title}</h3>
+                  </div>
+                </div>
+
+                {/* Content */}
+                <div className="p-4 sm:p-5">
+                  <p className="text-gray-400 text-sm leading-relaxed mb-3 sm:mb-4 break-words">{project.description}</p>
+                  <Link href="/contact" className="inline-flex items-center gap-1 text-primary text-sm font-semibold hover:underline">
+                    Get a Quote <span className="group-hover:translate-x-1 transition-transform">&rarr;</span>
+                  </Link>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="py-14 sm:py-16 bg-section-gradient text-center">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white mb-4">
+            Want to See More <span className="text-gold">Work?</span>
+          </h2>
+          <p className="text-gray-400 text-sm sm:text-base mb-6 sm:mb-8">Browse our complete work gallery with 25+ real project photos.</p>
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
+            <Link href="/work-gallery" className="btn-primary">View Gallery</Link>
+            <Link href="/contact" className="btn-outline">Get a Quote</Link>
+          </div>
+        </div>
+      </section>
     </Layout>
   );
 }

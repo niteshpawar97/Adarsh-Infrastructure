@@ -12,30 +12,22 @@ export default function Home() {
   return (
     <Layout>
       <Head>
-        <title>Adarsh Infrastructure - A-Class Electrical Contractor</title>
-        <meta name="description" content="A-Class Government Registered Electrical Contractor providing top-notch solutions for Residential, Commercial, and Industrial projects." />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Adarsh Infrastructure - A-Class Electrical Contractor | Chhindwara, MP</title>
+        <meta name="description" content="Adarsh Infrastructure - A-Class Government Registered Electrical Contractor in Chhindwara, MP. HT & LT power distribution, solar energy, transformer installation, and electrification services." />
+        <meta property="og:title" content="Adarsh Infrastructure - A-Class Electrical Contractor" />
+        <meta property="og:description" content="Government Registered Electrical Contractor providing HT & LT power distribution, solar energy, and electrification in Madhya Pradesh." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://adarshinfra.com" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <link rel="canonical" href="https://adarshinfra.com" />
       </Head>
 
-      {/* Hero Section */}
       <HeroSection />
-
-      {/* Why Choose Us Section */}
       <WhyChooseUs />
-
-      {/* Services Overview */}
       <ServicesOverview />
-
-      {/* Projects Overview (Instead of Products) */}
       <ProjectsOverview />
-
-      {/* Testimonials Section */}
       <Testimonials />
-
-      {/* FAQs */}
       <FAQSection />
-
-      {/* Contact Section */}
       <ContactSection />
     </Layout>
   );
